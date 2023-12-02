@@ -264,7 +264,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pg (~> 1.5, >= 1.5.4)
-  puma (>= 5.0)
+  puma (>= 6.4)
   rails (~> 7.1.2)
   selenium-webdriver
   sprockets-rails
