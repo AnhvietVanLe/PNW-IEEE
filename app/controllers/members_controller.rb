@@ -64,9 +64,17 @@ class MembersController < ApplicationController
     end
   end
 
+  # def correct_user
+  #   @member = current_user.members.find_by(id: params[:id])
+  #   redirect_to members_path, notice: "Not Authorized To Edit This member" if @member.nil?
+  # end
+
   def correct_user
     @member = current_user.members.find_by(id: params[:id])
-    redirect_to members_path, notice: "Not Authorized To Edit This member" if @member.nil?
+    unless @member
+      Rails.logger.error("Attempted unauthorized edit of member with ID #{params[:id]} by user #{current_user.id}")
+      redirect_to members_path, notice: "Not Authorized To Edit This Member"
+    end
   end
 
 
