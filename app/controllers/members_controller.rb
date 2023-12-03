@@ -87,6 +87,6 @@ class MembersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def member_params
-      params.require(:member).permit(:first_name, :last_name, :email, :phone, :ieee_membership_number, :ieee_membership_grade, :ieee_membership_status, :ieee_hkn, :major, :grade_year, :grad_date, :linkedin_username, :discord_username)
+      params.require(:member).permit(:first_name, :last_name, :email, :phone, :ieee_membership_number, :ieee_membership_grade, :ieee_membership_status, :ieee_hkn, :major, :grade_year, :grad_date, :linkedin_username, :discord_username, :profile_picture)
     end
 end

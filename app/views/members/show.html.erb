@@ -1,14 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="jumbotron">
+  <p class="lead">
+    <% if @member.profile_picture.attached? %>
+      <%= image_tag @member.profile_picture, class: "rounded-circle", style: "width: 200px; height: 200px;" %>
+    <% else %>
+      No profile picture available.
+    <% end %>
+  </p>
   <h1 class="display-4">
     <%= @member.first_name %>
     <%= @member.last_name %>
-  </h1>
+  </h1> 
   <p class="lead">
     Email: <%= @member.email %>  | 
-    Phone #: <%= @member.phone %>  |  
-    Twitter: <%= @member.ieee_membership_number %>
+    Phone #: <%= @member.phone %>  
   </p>
   <p class="lead">
     IEEE membership number: <%= @member.ieee_membership_number %>  | 
@@ -22,7 +28,7 @@
     Expected Graduation Date: <%= @member.grad_date %>  
   </p>
   <p class="lead">
-    Linkedin username:<%= @member.linkedin_username %>  | 
+    Linkedin username: <%= @member.linkedin_username %>  | 
     Discord username: <%= @member.discord_username %>
   </p>
   <br/>

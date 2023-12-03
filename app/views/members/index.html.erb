@@ -5,16 +5,17 @@
   <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
       <tr>
+        <th>Profile Photo</th>
         <th>Name</th>
         <th>Email</th>
-        <th>Phone</th>
-        <th>Membership Number</th>
+        <%# <th>Phone</th> %>
+        <th>IEEE Membership Number</th>
         <th>HKN Status</th>
         <th>Major</th>
         <th>Grade Year</th>
         <th>Expected Graduation Date</th>
         <th>LinkedIn Username</th>
-        <th>Discord Username</th>
+        <%# <th>Discord Username</th> %>
 
         <th></th>
       </tr>
@@ -24,17 +25,24 @@
 
         <tr>
           <td>
+            <% if member.profile_picture.attached? %>
+              <%= image_tag member.profile_picture, class: "rounded-circle", style: "width: 50px; height: 50px;" %>
+            <% else %>
+              No profile picture
+            <% end %>
+          </td>
+          <td>
             <%= link_to member.first_name + ' ' + member.last_name, member %>
           </td>
           <td><%= member.email %></td>
-          <td><%= member.phone %></td>
+          <%#= member.phone %>
           <td><%= member.ieee_membership_number %></td>
-          <td><%= member.ieee_hkn %></td>
+          <td><%= member.ieee_hkn ? 'Yes' : 'No' %></td>
           <td><%= member.major %></td>
           <td><%= member.grade_year %></td>
           <td><%= member.grad_date %></td>
           <td><%= member.linkedin_username %></td>
-          <td><%= member.discord_username %></td>
+          <%#= member.discord_username %>
           <td>
             <%= link_to 'Show', member,  class: "btn btn-outline-danger btn-sm"   %>
           </td>
