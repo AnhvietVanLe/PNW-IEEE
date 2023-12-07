@@ -26,19 +26,19 @@
       <div style="flex: 1;">
         <%#= form.label :first_name %>
         <p>First Name:</p>
-        <%= form.text_field :first_name %>
+        <%= form.text_field :first_name, required: true  %>
       </div>
 
       <div style="flex: 1;">
         <%#= form.label :last_name %>
         <p>Last Name:</p>
-        <%= form.text_field :last_name %>
+        <%= form.text_field :last_name, required: true  %>
       </div>
 
       <div style="flex: 1;">
         <%#= form.label :email, style: "display: block" %>
         <p>Email:</p>
-        <%= form.text_field :email %>
+        <%= form.text_field :email, required: true  %>
       </div>
 
       <div style="flex: 1;">
@@ -59,52 +59,42 @@
       <div style="flex: 1;">
         <%#= form.label :ieee_membership_number, style: "display: block" %> 
         <p>IEEE Membership Number:</p>
-        <%= form.text_field :ieee_membership_number %>
-      </div>
-
-      <div style="flex: 1;">
-        <%#= form.label :ieee_membership_grade, style: "display: block" %>
-        <p>IEEE Membership Grade:</p>
-        <%= form.text_field :ieee_membership_grade %>
+        <%= form.text_field :ieee_membership_number, required: true  %>
       </div>
 
       <div style="flex: 1;">
         <%#= form.label :is_ieee_membership_status_active, style: "display: block" %>
+
+        <% if defined?(current_user) && current_user&.admin? %>
+        <p>IEEE Membership Grade:</p>
+          <%= form.text_field :ieee_membership_grade %>
+        <% else %>
+          <%= member.ieee_membership_grade %>
+          <%= form.hidden_field :ieee_membership_grade %>
+        <% end %>
+      </div>
+
+      <div style="flex: 1;">
+        <%#= form.label :is_ieee_membership_status_active, style: "display: block" %>
+
+        <% if defined?(current_user) && current_user&.admin? %>
         <p>Is Active IEEE Member:</p>
-        <%= form.check_box :ieee_membership_status %>
+          <%= form.check_box :ieee_membership_status %>
+        <% else %>
+          <%= member.ieee_membership_status ? "ACTIVE IEEE MEMBER" : "" %>
+          <%= form.hidden_field :ieee_membership_status %>
+        <% end %>
       </div>
 
       <div style="flex: 1;">
         <%#= form.label :is_ieee_hkn_member, style: "display: block" %>
+        <% if defined?(current_user) && current_user&.admin? %>
         <p>Is a IEEE-HKN member:</p>
-        <%= form.check_box :ieee_hkn %>
-      </div>
-
-    </div>
-  </div>
-
-  <br></br>
-
-  <div>
-    <h5>Student Information:</h5>
-    <div style="display: flex;">
-
-      <div style="flex: 1;">
-        <%#= form.label :major, style: "display: block" %>
-        <p>Major:</p>
-        <%= form.text_field :major %>
-      </div>
-
-      <div style="flex: 1;">
-        <%#= form.label :grade_year, style: "display: block" %>
-        <p>Grade Year:</p>
-        <%= form.text_field :grade_year %>
-      </div>
-
-      <div style="flex: 1;">
-        <%#= form.label :grad_date, style: "display: block" %>
-        <p>Expected Graduation Date:</p>
-        <%= form.date_field :grad_date %>
+          <%= form.check_box :ieee_hkn %>
+        <% else %>
+          <%= member.ieee_hkn ? "IEEE-HKN MEMBER" : "" %>
+          <%= form.hidden_field :ieee_hkn %>
+        <% end %>
       </div>
 
     </div>
@@ -128,8 +118,50 @@
         <%= form.text_field :discord_username %>
       </div>
 
+      <div style="flex: 1;">
+        <%# FORMATTING BLANK SPACE%>
+      </div>
+
+
+      <div style="flex: 1;">
+        <%# FORMATTING BLANK SPACE%>
+      </div>
+
     </div>
   </div>
+
+    <br></br>
+
+  <div>
+    <h5>School Information:</h5>
+    <div style="display: flex;">
+
+      <div style="flex: 1;">
+        <%#= form.label :major, style: "display: block" %>
+        <p>Major:</p>
+        <%= form.text_field :major %>
+      </div>
+
+      <div style="flex: 1;">
+        <%#= form.label :grade_year, style: "display: block" %>
+        <p>Grade Year:</p>
+        <%= form.text_field :grade_year %>
+      </div>
+
+      <div style="flex: 1;">
+        <%#= form.label :grad_date, style: "display: block" %>
+        <p>Expected Graduation Date:</p>
+        <%= form.date_field :grad_date %>
+      </div>
+
+      <div style="flex: 1;">
+        <%# FORMATTING BLANK SPACE%>
+      </div>
+
+    </div>
+  </div>
+
+  
 
   <div class="field form-group">
     <%= form.number_field :user_id, id: :member_user_id, class:"form-control", value: current_user.id, type: :hidden  %>

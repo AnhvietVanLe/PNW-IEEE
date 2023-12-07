@@ -5,7 +5,7 @@
     <% if @member.profile_picture.attached? %>
       <%= image_tag @member.profile_picture, class: "rounded-circle", style: "width: 200px; height: 200px;" %>
     <% else %>
-      No profile picture available.
+      <%= image_tag "default_profile_picture.jpg", class: "rounded-circle", style: "width: 200px; height: 200px;" %>
     <% end %>
   </p>
   <h1 class="display-4">
@@ -19,8 +19,8 @@
   <p class="lead">
     IEEE membership number: <%= @member.ieee_membership_number %>  | 
     Membership Grade: <%= @member.ieee_membership_grade %>  | 
-    Membership Status: <%= @member.ieee_membership_status %>  | 
-    HKN Status: <%= @member.ieee_hkn %>
+    Active Member: <%= @member.ieee_membership_status ? 'Yes' : 'No'   %>  | 
+    HKN Member: <%= @member.ieee_hkn ? 'Yes' : 'No'  %>
   </p>
   <p class="lead">
     Major: <%= @member.major %>  | 
@@ -34,7 +34,9 @@
   <br/>
 
 <div style="display: flex; align-items: center;">
-  <%= link_to "Edit this member", edit_member_path(@member), class: "btn btn-secondary", style: "margin-right: 10px;" %> 
+  <% if current_user == @member.user || current_user.admin? %>
+    <%= link_to "Edit this member", edit_member_path(@member), class: "btn btn-secondary", style: "margin-right: 10px;" %> 
+  <% end %>
   <%= link_to "Back to members", members_path, class: "btn btn-secondary", style: "margin-right: 10px;" %> 
   <%#= button_to "Delete this member", @member, method: :delete, class: "btn btn-danger", style: "" %>
 </div>

@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {registrations:'users/registrations'}
+  devise_for :admins, :controllers => {
+    registrations:'admin/registrations'
+  }
+  devise_for :users, :controllers => {
+    registrations:'users/registrations'
+  }
   devise_scope :user do  
    get '/users/sign_out' => 'devise/sessions#destroy'     
   end
+  
   resources :members
   #get 'home/index'
   get 'home/about'

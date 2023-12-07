@@ -3,6 +3,7 @@ class MembersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
+
   # GET /members
   # GET /members.json
   def index
@@ -70,8 +71,9 @@ class MembersController < ApplicationController
   # end
 
   def correct_user
-    @member = current_user.members.find_by(id: params[:id])
-    unless @member
+    @member = Member.find_by(id: params[:id])
+
+    unless @member && (current_user.admin? || @member.user == current_user)
       Rails.logger.error("Attempted unauthorized edit of member with ID #{params[:id]} by user #{current_user.id}")
       redirect_to members_path, notice: "Not Authorized To Edit This Member"
     end
