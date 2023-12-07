@@ -16,13 +16,18 @@
 
         <li class="nav-item">
           <div class="text-center">
-            <% if current_user.members.present? %>
-              <%= link_to "Edit Profile", new_member_path, class: "btn btn-secondary mx-auto nav-link" %>
+            <% if current_user.members.present? && current_user.members.first.present? %>
+              <%= link_to "Members", root_path, class: "btn btn-secondary mx-auto" %>
+
             <% else %>
-              <%= link_to 'Add Profile', edit_user_registration_path, class: "btn btn-secondary mx-auto nav-link" %>
+              <%= link_to "Add Profile", new_member_path, class: "btn btn-secondary mx-auto nav-link" %>
             <% end %>
           </div>
         </li> 
+
+        <li class="nav-item">
+            <%= link_to "Edit Account", edit_user_registration_path, class: "btn btn-secondary mx-auto nav-link" %>
+        </li>
 
         <li class="nav-item">
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
