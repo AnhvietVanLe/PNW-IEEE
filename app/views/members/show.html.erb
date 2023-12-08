@@ -37,17 +37,23 @@
     Expected Graduation Date: <%= @member.grad_date %>  
   </p>
 
-  <br/>
-
   <h5>Badges:</h5> 
   <p class="lead">
     <% if @member.ieee_hkn %>
-      <%= image_tag "HKN.png", style: 'border: 3px solid black; border-radius: 5px; width: 200px; height: 133px;' %>
+      <%= image_tag "ieeehkncrest.png", style: 'border: 3px solid black; border-radius: 5px; width: 120px; height: 150px;' %>
+    <% end %>
+    <% if @member.soldering_workshop %>
+      <%= image_tag "soldering_workshop.png", style: 'border: 3px solid black; border-radius: 5px; width: 150px; height: 150px;' %>
+    <% end %>
+    <% if @member.battery_workshop %>
+      <%= image_tag "battery_workshop.png", style: 'border: 3px solid black; border-radius: 5px; width: 150px; height: 150px;' %>
+    <% end %>
+    <% if @member._3d_workshop %>
+      <%= image_tag "_3d_workshop.png", style: 'border: 3px solid black; border-radius: 5px; width: 150px; height: 150px;' %>
     <% end %>
   </p>
 
   <br/>
-
 
 <div style="display: flex; align-items: center;">
   <% if current_user == @member.user || current_user.admin? %>

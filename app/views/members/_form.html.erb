@@ -130,7 +130,7 @@
     </div>
   </div>
 
-    <br></br>
+  <br></br>
 
   <div>
     <h5>School Information:</h5>
@@ -156,6 +156,38 @@
 
       <div style="flex: 1;">
         <%# FORMATTING BLANK SPACE%>
+      </div>
+
+    </div>
+  </div>
+
+  <br></br>
+
+  <div>
+    <div style="display: flex;">
+
+      <div style="flex: 1;">
+
+        <% if defined?(current_user) && current_user&.admin? %>
+        <p>Soldering Workshop:</p>
+          <%= form.check_box :soldering_workshop %>
+        <% end %>
+      </div>
+
+      <div style="flex: 1;">
+
+        <% if defined?(current_user) && current_user&.admin? %>
+        <p>Battery Workshop:</p>
+          <%= form.check_box :battery_workshop %>
+        <% end %>
+      </div>
+
+      <div style="flex: 1;">
+
+        <% if defined?(current_user) && current_user&.admin? %>
+        <p>3D Printing Workshop:</p>
+          <%= form.check_box :_3d_workshop %>
+        <% end %>
       </div>
 
     </div>
