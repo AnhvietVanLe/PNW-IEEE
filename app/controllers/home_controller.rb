@@ -5,4 +5,7 @@ class HomeController < ApplicationController
   def about
   end
 
+  def badges
+  end
+
 end
