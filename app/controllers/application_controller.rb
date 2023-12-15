@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
 
 	def set_layout
 		if current_user&.admin?
-			# if current_user && current_user.admin?
-			# Ensures you won't error if not logged in when check if admin
 			"application"
 		else
 			"application"

@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get 'home/about'
   #root 'home#index'
   root 'members#index'
-
   get 'home/badges', to: 'home#badges', as: :home_badges
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
