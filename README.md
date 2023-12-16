@@ -8,3 +8,5 @@ Currently named: IEEE-PNW CONNECT
 This app is in alpha stages of development.
 
 Sources: I learned Ruby on Rails from a few YouTube video but the most useful and impactful video is "Learn Ruby on Rails - Full Course" by freeCodeCamp.org
+
+Planning to go in to production
