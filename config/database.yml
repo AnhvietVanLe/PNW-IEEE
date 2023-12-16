@@ -20,6 +20,16 @@ test:
   <<: *default
   database: storage/test.sqlite3
 
+# production:
+#   <<: *postgresql
+#   database: storage/production.sqlite3
+
 production:
-  <<: *default
-  database: storage/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: pnw_ieee
+  username: pnw_ieee_user
+  password: <%= ENV['PNW_IEEE_DATABASE_PASSWORD'] %>
+  host: dpg-clufl7md3nmc7383snv0-a
+  port: 5432
