@@ -1,5 +1,6 @@
-process.env.NODE_ENV = process.env.NODE_ENV || 'production'
+const environment = require('./environment');
 
-const environment = require('./environment')
+// Log the Webpack configuration before exporting
+console.log('Webpack Configuration:', environment.toWebpackConfig());
 
-module.exports = environment.toWebpackConfig()
+module.exports = environment.toWebpackConfig();

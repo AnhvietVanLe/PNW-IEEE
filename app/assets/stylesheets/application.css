@@ -12,13 +12,6 @@
  *
  *= require_tree .
  *= require_self
+  *= require bootstrap
  */
-
- *= require owl.carousel
- *= require owl.theme.default
-
-.owl-carousel .item img {
-  max-width: 100%;
-  height: auto;
-}
 

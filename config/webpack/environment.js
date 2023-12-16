@@ -1,3 +1,8 @@
-const { environment } = require('@rails/webpacker')
+const { environment } = require('@rails/webpacker');
+const webpack = require('webpack'); // Import webpack
 
-module.exports = environment
+
+// Rest of your configuration
+environment.plugins.append('Provide', new webpack.ProvidePlugin({ $: 'jquery' }));
+
+module.exports = environment;

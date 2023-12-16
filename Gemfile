@@ -2,6 +2,11 @@ source "https://rubygems.org"
 
 ruby "3.2.2"
 
+gem 'sassc-rails', '~> 2.1.2'
+gem 'dartsass-sprockets', '~> 3.0.0'
+
+gem 'bootstrap', '~> 5.0'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
 
@@ -42,7 +47,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use for image carousel on about page
-gem 'owlcarousel-rails', '~> 2.2', '>= 2.2.3.5'
+# gem 'owlcarousel-rails', '~> 2.2', '>= 2.2.3.5'
 
 gem 'webpacker', '~> 5.4', '>= 5.4.4'
 
