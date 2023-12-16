@@ -5,12 +5,12 @@ databases:
 
 services:
   - type: web
-    name: PNW-IEEE
+    name: PNW-IEEE-ENGAGE
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
-      - key: postgres://pnw_ieee_user:F3RHlRpOWINSUZSyyGhpk5mj7VX0zzFR@dpg-clufl7md3nmc7383snv0-a/pnw_ieee
+      - key: DATABASE_URL
         fromDatabase:
           name: PNW-IEEE
           property: connectionString
