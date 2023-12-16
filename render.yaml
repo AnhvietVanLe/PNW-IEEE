@@ -1,6 +1,6 @@
 databases:
-  - name: pnw_ieee
-    databaseName: pnw_ieee
+  - name: PNW-IEEE
+    databaseName: PNW-IEEE
     user: pnw_ieee_user
 
 services:
@@ -12,7 +12,7 @@ services:
     envVars:
       - key: postgres://pnw_ieee_user:F3RHlRpOWINSUZSyyGhpk5mj7VX0zzFR@dpg-clufl7md3nmc7383snv0-a/pnw_ieee
         fromDatabase:
-          name: pnw_ieee
+          name: PNW-IEEE
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
