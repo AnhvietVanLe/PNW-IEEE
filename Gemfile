@@ -51,6 +51,8 @@ gem 'jquery-rails', '~> 4.6'
 # User account management
 gem 'devise', '~> 4.9', '>= 4.9.3'
 
+gem 'pg', '~> 1.5', '>= 1.5.4'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
