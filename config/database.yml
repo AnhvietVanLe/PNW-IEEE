@@ -27,7 +27,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 10 } %>
   database: pnw_ieee
   username: pnw_ieee_user
   password: <%= ENV['PNW_IEEE_DATABASE_PASSWORD'] %>
