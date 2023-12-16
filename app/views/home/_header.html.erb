@@ -8,7 +8,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <%= link_to "Members", root_path, class: "btn btn-secondary mx-2 nav-link", 
+
       <% if user_signed_in? %>
 
         <li class="nav-item">
@@ -55,6 +55,10 @@
 
         <li class="nav-item">
           <%= link_to "Sign In", new_user_session_path, class: "btn btn-secondary mx-2 nav-link", style: "background-color: #00629B;" %>
+        </li>   
+        
+        <li class="nav-item">
+          <%= link_to "Members", root_path, class: "btn btn-secondary mx-2 nav-link", style: "background-color: #00629B;" %>
         </li>   
 
       <% end %>
