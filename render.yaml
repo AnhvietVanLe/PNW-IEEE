@@ -1,11 +1,11 @@
 databases:
   - name: PNW-IEEE
-    databaseName: PNW-IEEE
+    databaseName: pnw_ieee
     user: pnw_ieee_user
 
 services:
   - type: web
-    name: pnw_ieee
+    name: PNW-IEEE
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
