@@ -1,0 +1,18 @@
+databases:
+  - name: pnw_ieee
+    databaseName: pnw_ieee
+    user: pnw_ieee_user
+
+services:
+  - type: web
+    name: pnw_ieee
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: postgres://pnw_ieee_user:F3RHlRpOWINSUZSyyGhpk5mj7VX0zzFR@dpg-clufl7md3nmc7383snv0-a/pnw_ieee
+        fromDatabase:
+          name: pnw_ieee
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
