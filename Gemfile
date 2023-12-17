@@ -44,7 +44,7 @@ gem "bootsnap", require: false
 # Use for image carousel on about page
 gem 'owlcarousel-rails', '~> 2.2', '>= 2.2.3.5'
 
-gem 'webpacker', '~> 5.4', '>= 5.4.4'
+gem 'webpacker', '6.0.0.rc.6'
 
 gem 'jquery-rails', '~> 4.6'
 
