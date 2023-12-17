@@ -1,24 +1,18 @@
 const path = require('path');
 
 module.exports = {
-  // Entry point of your application
-  entry: './path/to/your/entry/file.js',
-
-  // Where to output the bundled files
+  entry: './src/app.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
+};
+const path = require('path');
 
-  // Module rules for handling different file types
-  module: {
-    rules: [
-      // Add loaders here, e.g., for JavaScript, CSS, images, etc.
-    ],
+module.exports = {
+  entry: './app/javascript/packs/application.js', // Path to your application.js file
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'public/packs'),
   },
-
-  // Plugins for additional functionality
-  plugins: [
-    // Add plugins here
-  ],
 };
