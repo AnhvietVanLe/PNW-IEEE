@@ -1,11 +1,11 @@
 databases:
-  - name: pnwieee
-    databaseName: pnwieee
-    user: pnwieee
+  - name: pnw_ieee
+    databaseName: pnw_ieee
+    user: pnw_ieee_user
 
 services:
   - type: web
-    name: pnwieee
+    name: PNW-IEEE
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
@@ -13,6 +13,6 @@ services:
       - key: DATABASE_URL
         fromDatabase:
           name: pnwieee
-          property: connectionString
+          property: connectionStringS
       - key: RAILS_MASTER_KEY
         sync: false
